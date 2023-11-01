@@ -7,6 +7,16 @@
   @apply rounded-lg h-24 w-full bg-red-400
 }
 
+.img-grid {
+  @apply grid mt-3 ml-24 mr-24 px-4 py-4 
+  rounded-lg bg-white sm:grid-cols-5 gap-4
+}
+
+.featured-card {
+  @apply row-span-2 col-span-2 rounded-lg 
+  h-full w-full bg-red-400
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
