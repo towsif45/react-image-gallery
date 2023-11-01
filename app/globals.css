@@ -18,6 +18,12 @@
   h-full w-full bg-transparent
 }
 
+.checkbox {
+  @apply m-4 absolute 
+  opacity-0 group-hover:opacity-100 
+  rounded-lg focus:outline-none
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
