@@ -1,10 +1,11 @@
 import Image from 'next/image'
 
+type ImageURL = {
+  name: string;
+  key: string;
+}
+
 export default function Home() {
-  type ImageURL = {
-    name: string;
-    key: string;
-  }
   const images_url: ImageURL[] = [
     {name: 'image-1.webp', key: '1'},
     {name: 'image-2.webp', key: '2'},
@@ -20,7 +21,7 @@ export default function Home() {
     
   ];
   return (
-    <div className='h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-200 flex flex-col'>
+    <div className='relative min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-200 flex flex-col'>
       <div className='flex w-screen justify-center'>
         <h1 className='m-5 p-3 rounded-lg text-7xl font-bold h-min bg-white'> Gallery </h1>
       </div>
