@@ -20,7 +20,9 @@
 
 .checkbox {
   @apply m-4 absolute 
-  opacity-0 group-hover:opacity-100 
+  opacity-0 
+  checked:opacity-100
+  group-hover:opacity-100
   rounded-lg focus:outline-none
 }
 
