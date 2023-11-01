@@ -4,7 +4,7 @@
 
 
 .img-card {
-  @apply rounded-lg w-full bg-red-400
+  @apply rounded-lg w-full bg-white
 }
 
 .img-grid {
@@ -15,7 +15,7 @@
 
 .featured-card {
   @apply flex row-span-2 col-span-2 rounded-lg 
-  h-full w-full bg-red-400
+  h-full w-full bg-transparent
 }
 
 /* :root {
