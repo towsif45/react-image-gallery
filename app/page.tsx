@@ -17,8 +17,7 @@ export default function Home() {
     {name: 'image-8.webp', key: '8'},
     {name: 'image-9.webp', key: '9'},
     {name: 'image-10.jpeg', key: '10'},
-    {name: 'image-11.jpeg', key: '11'},
-    
+    {name: 'image-11.jpeg', key: '11'}, 
   ];
   return (
     <div className='relative min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-200 flex flex-col'>
@@ -33,16 +32,24 @@ export default function Home() {
       </div>
       <div className='flex justify-center'>
         <div className='img-grid'>
-          <div className='featured-card'> <img src='/images/image-1.webp'/> </div>
-          {
-            images_url.map((image_) => (
-              (
-                <div key={image_.key} className='img-card'>
-                  <img src={'/images/'+image_.name} alt={image_.name} />
+        {
+          images_url.map((element, id) => {
+            if(id === 0){
+              return(
+                <div key={element.key} className='featured-card'> 
+                  <input type='checkbox' className='m-1 absolute opacity-100' />
+                  <img src='/images/image-1.webp' className='rounded-lg'/> 
                 </div>
               )
-            ))
-          } 
+            }
+            return (
+              <div key={element.key} className='img-card'>
+                  <input type='checkbox' className='m-1 absolute opacity-100' />
+                  <img src={'/images/'+element.name} alt={element.name} className='rounded-lg' />
+              </div>
+            )
+          })
+        } 
         </div>
       </div>
     </div>
