@@ -20,7 +20,7 @@ export default function Home() {
     {name: 'image-11.jpeg', key: '11'}, 
   ];
   return (
-    <div className='relative min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-200 flex flex-col'>
+    <div className='body'>
       <div className='flex w-screen justify-center'>
         <h1 className='m-5 p-3 rounded-lg text-7xl font-bold h-min bg-white'> Gallery </h1>
       </div>
@@ -36,16 +36,16 @@ export default function Home() {
           images_url.map((element, id) => {
             if(id === 0){
               return(
-                <div key={element.key} className='featured-card group hover:scale-105 duration-300'> 
-                  <input type='checkbox' className='checkbox' />
-                  <img src='/images/image-1.webp' className='rounded-lg'/> 
+                <div key={element.key} className='featured-card group hover:scale-105 hover: duration-300'> 
+                  <input type='checkbox' className='checkbox peer z-10' />
+                  <img src='/images/image-1.webp' className='rounded-lg peer-checked:opacity-50 z-0'/> 
                 </div>
               )
             }
             return (
               <div key={element.key} className='img-card group hover:scale-105 duration-300'>
-                  <input type='checkbox' className='checkbox' />
-                  <img src={'/images/'+element.name} alt={element.name} className='rounded-lg' />
+                  <input type='checkbox' className='checkbox peer z-10' />
+                  <img src={'/images/'+element.name} alt={element.name} className='rounded-lg peer-checked:opacity-50 z-0' />
               </div>
             )
           })
