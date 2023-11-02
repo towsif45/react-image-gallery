@@ -36,16 +36,28 @@ export default function Home() {
           images_url.map((element, id) => {
             if(id === 0){
               return(
-                <div key={element.key} className='featured-card group hover:scale-105 hover: duration-300'> 
+                <div key={element.key} className='featured-card group hover:scale-105 duration-300'> 
                   <input type='checkbox' className='checkbox peer z-10' />
-                  <img src='/images/image-1.webp' className='rounded-lg peer-checked:opacity-50 z-0'/> 
+                  <Image 
+                    src={'/images/'+element.name} 
+                    alt={element.name} 
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className='rounded-lg peer-checked:opacity-50 z-0 w-full h-auto'/> 
                 </div>
               )
             }
             return (
               <div key={element.key} className='img-card group hover:scale-105 duration-300'>
                   <input type='checkbox' className='checkbox peer z-10' />
-                  <img src={'/images/'+element.name} alt={element.name} className='rounded-lg peer-checked:opacity-50 z-0' />
+                  <Image 
+                    src={'/images/'+element.name} 
+                    alt={element.name} 
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className='rounded-lg peer-checked:opacity-50 z-0 w-full h-auto' />
               </div>
             )
           })
