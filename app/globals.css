@@ -2,33 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-.body {
-  @apply relative min-h-screen bg-gradient-to-br 
-  from-blue-950 via-blue-700 to-blue-200 flex flex-col
+@layer components {
+  .body {
+    @apply relative min-h-screen bg-gradient-to-br 
+    from-blue-950 via-blue-700 to-blue-200 flex flex-col
+  }
+
+  .img-card {
+    @apply rounded-lg w-full bg-white
+  }
+
+  .img-grid {
+    @apply grid mt-3 ml-20 mr-20 mb-10 px-5 py-5
+    max-w-3xl 
+    rounded-lg bg-blue-300 sm:grid-cols-5 gap-4
+  }
+
+  .featured-card {
+    @apply flex row-span-2 col-span-2 rounded-lg 
+    h-full w-full bg-white
+  }
+
+  .checkbox {
+    @apply m-4 w-4 h-4 absolute 
+    invisible
+    checked:visible
+    group-hover:visible
+    rounded-lg focus:outline-none
+  }
 }
 
-.img-card {
-  @apply rounded-lg w-full bg-white
-}
 
-.img-grid {
-  @apply grid mt-3 ml-20 mr-20 mb-10 px-5 py-5
-  max-w-3xl 
-  rounded-lg bg-blue-300 sm:grid-cols-5 gap-4
-}
-
-.featured-card {
-  @apply flex row-span-2 col-span-2 rounded-lg 
-  h-full w-full bg-transparent
-}
-
-.checkbox {
-  @apply m-4 w-4 h-4 absolute 
-  invisible
-  checked:visible
-  group-hover:visible
-  rounded-lg focus:outline-none
-}
 
 /* :root {
   --foreground-rgb: 0, 0, 0;
