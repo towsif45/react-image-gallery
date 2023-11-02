@@ -29,6 +29,7 @@
     checked:visible
     group-hover:visible
     rounded-lg focus:outline-none
+    hover:cursor-pointer
   }
 }
 
