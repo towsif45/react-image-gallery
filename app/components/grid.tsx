@@ -1,14 +1,15 @@
 'use client'
 
 import Image from 'next/image';
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { FC, useEffect, useMemo, useState } from 'react'
+import ImageContainer from './ImageContainer';
 
 export type ImageURL = {
     name: string;
     key: string;
   }
 
-const Grid = () => {
+const Grid: FC = () => {
     const [data, setData] = useState<ImageURL[]>([]);
     
     const images_url: ImageURL[] = useMemo(() => 
@@ -32,38 +33,20 @@ const Grid = () => {
     }, [images_url])
 
     return (
-        <div className='img-grid'>
+        <div className='image-grid'>
         {
           data.map((element, id) => {
             if(id === 0){
               return(
-                <div key={element.key} className='featured-card'>
-                    <div className='w-full h-auto group hover:scale-105 duration-300'> 
-                        <input type='checkbox' className='checkbox peer z-10' />
-                        <Image 
-                            src={'/images/'+element.name} 
-                            alt={element.name} 
-                            width="0"
-                            height="0"
-                            sizes="100vw"
-                            className='rounded-lg peer-checked:opacity-50 z-0 w-full h-auto'/> 
-                    </div>
+                <div key={element.key} className='featured-dropzone'>
+                    <ImageContainer filename={element.name} id={element.key} />
                 </div>
                 
               )
             }
             return (
-                <div key={element.key} className='img-card'>
-                    <div  className='w-full h-auto group hover:scale-105 duration-300'>
-                        <input type='checkbox' className='checkbox peer z-10' />
-                        <Image 
-                            src={'/images/'+element.name} 
-                            alt={element.name} 
-                            width="0"
-                            height="0"
-                            sizes="100vw"
-                            className='rounded-lg peer-checked:opacity-50 z-0 w-full h-auto' />
-                    </div>
+                <div key={element.key} className='image-dropzone'>
+                    <ImageContainer filename={element.name} id={element.key} />
                 </div>
                 
             )

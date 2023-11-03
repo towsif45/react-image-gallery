@@ -8,17 +8,21 @@
     from-blue-950 via-blue-700 to-blue-200 flex flex-col
   }
 
-  .img-card {
+  .image {
+    @apply rounded-lg peer-checked:opacity-50 z-0 w-full h-auto
+  }
+
+  .image-dropzone {
     @apply flex rounded-lg w-full h-auto bg-white
   }
 
-  .img-grid {
+  .image-grid {
     @apply grid mt-3 ml-20 mr-20 mb-10 px-5 py-5
     max-w-3xl 
     rounded-lg bg-blue-300 sm:grid-cols-5 gap-4
   }
 
-  .featured-card {
+  .featured-dropzone {
     @apply flex row-span-2 col-span-2 rounded-lg 
     h-auto w-full bg-white
   }
