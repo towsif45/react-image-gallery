@@ -1,7 +1,8 @@
 import Grid from './components/Grid'
+import { IMAGE_URLS } from './components/data';
 
 export default function Home() {
-  
+
   return (
     <div className='body'>
       <div className='flex w-screen justify-center'>
@@ -14,7 +15,7 @@ export default function Home() {
         <button className='m-3 p-3 rounded-md bg-white'> Delete </button>
       </div>
       <div className='flex justify-center'>
-        <Grid />
+        <Grid urls={IMAGE_URLS} />
       </div>
     </div>
   )
