@@ -9,7 +9,7 @@
   }
 
   .img-card {
-    @apply rounded-lg w-full bg-white
+    @apply flex rounded-lg w-full h-auto bg-white
   }
 
   .img-grid {
@@ -20,7 +20,7 @@
 
   .featured-card {
     @apply flex row-span-2 col-span-2 rounded-lg 
-    h-full w-full bg-white
+    h-auto w-full bg-white
   }
 
   .checkbox {

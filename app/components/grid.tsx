@@ -30,35 +30,42 @@ const Grid = () => {
     useEffect(()=>{
         setData(images_url);
     }, [images_url])
+
     return (
         <div className='img-grid'>
         {
           data.map((element, id) => {
             if(id === 0){
               return(
-                <div key={element.key} className='featured-card group hover:scale-105 duration-300'> 
-                  <input type='checkbox' className='checkbox peer z-10' />
-                  <Image 
-                    src={'/images/'+element.name} 
-                    alt={element.name} 
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    className='rounded-lg peer-checked:opacity-50 z-0 w-full h-auto'/> 
+                <div key={element.key} className='featured-card'>
+                    <div className='w-full h-auto group hover:scale-105 duration-300'> 
+                        <input type='checkbox' className='checkbox peer z-10' />
+                        <Image 
+                            src={'/images/'+element.name} 
+                            alt={element.name} 
+                            width="0"
+                            height="0"
+                            sizes="100vw"
+                            className='rounded-lg peer-checked:opacity-50 z-0 w-full h-auto'/> 
+                    </div>
                 </div>
+                
               )
             }
             return (
-              <div key={element.key} className='img-card group hover:scale-105 duration-300'>
-                  <input type='checkbox' className='checkbox peer z-10' />
-                  <Image 
-                    src={'/images/'+element.name} 
-                    alt={element.name} 
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    className='rounded-lg peer-checked:opacity-50 z-0 w-full h-auto' />
-              </div>
+                <div key={element.key} className='img-card'>
+                    <div  className='w-full h-auto group hover:scale-105 duration-300'>
+                        <input type='checkbox' className='checkbox peer z-10' />
+                        <Image 
+                            src={'/images/'+element.name} 
+                            alt={element.name} 
+                            width="0"
+                            height="0"
+                            sizes="100vw"
+                            className='rounded-lg peer-checked:opacity-50 z-0 w-full h-auto' />
+                    </div>
+                </div>
+                
             )
           })
         } 
