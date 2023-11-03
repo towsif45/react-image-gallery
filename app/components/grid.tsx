@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import React, { useEffect, useMemo, useState } from 'react'
 
-type ImageURL = {
+export type ImageURL = {
     name: string;
     key: string;
   }
