@@ -11,7 +11,7 @@ import {
     useSensor,
     useSensors,
 } from "@dnd-kit/core";
-import { SortableContext, rectSortingStrategy } from "@dnd-kit/sortable";
+import { SortableContext, arrayMove, rectSortingStrategy } from "@dnd-kit/sortable";
 import SortableImage from "./SortableImage";
 
 type GridProps = {
@@ -20,7 +20,6 @@ type GridProps = {
 
 const Grid: FC<GridProps> = ({ urls }) => {
     const [data, setData] = useState<ImageURL[]>([]);
-    const imageId = useMemo(() => urls.map((item) => item.key), [urls]);
     const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
 
     useEffect(() => {
@@ -28,15 +27,26 @@ const Grid: FC<GridProps> = ({ urls }) => {
     }, [urls]);
 
     const handleDragEnd = (event: DragEndEvent) => {
-        console.log(event);
+        // console.log(event);
+        const { active, over } = event;
+        console.log(active.id);
+        console.log(over?.id);
+        if(over && active.id !== over.id){
+            setData((items) => {
+                const oldIndex = (items.map(i => i?.id)).indexOf(active.id)
+                const newIndex = (items.map(i => i?.id)).indexOf(over.id)
+                return arrayMove(items, oldIndex, newIndex)
+            })
+        }
     };
 
     return (
         <DndContext
+            sensors={sensors}
             collisionDetection={closestCenter}
             onDragEnd={handleDragEnd}
         >
-            <SortableContext items={imageId} strategy={rectSortingStrategy}>
+            <SortableContext items={data.map(i => i?.key)} strategy={rectSortingStrategy}>
                 <div className="image-grid">
                     {data.map((element, id) => {
                         if (id === 0) {
