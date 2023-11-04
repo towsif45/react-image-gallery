@@ -4,8 +4,12 @@
 
 @layer components {
     .body {
-        @apply relative min-h-screen bg-gradient-to-br from-blue-950 
-        via-blue-700 to-blue-200 flex flex-col;
+        @apply relative min-h-screen bg-gradient-to-br from-slate-950 
+        via-slate-700 to-slate-200 flex flex-col;
+    }
+
+    .button {
+        @apply m-3 p-3 rounded-md bg-red-600 text-white;
     }
 
     .image {
@@ -21,8 +25,8 @@
     }
 
     .image-grid {
-        @apply grid mt-3 ml-20 mr-20 mb-10 px-5 py-5 max-w-3xl 
-        rounded-lg bg-blue-300 sm:grid-cols-5 gap-4;
+        @apply grid px-5 py-5 max-w-3xl 
+        rounded-lg bg-slate-300 sm:grid-cols-5 gap-4;
     }
 
     .featured-dropzone {
