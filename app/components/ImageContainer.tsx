@@ -1,5 +1,7 @@
 import Image from "next/image";
-import React, { FC } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
+import { useDispatch } from "react-redux";
+import { decrement, increment } from "../slices/counterSlice";
 
 export type ImageContainerProps = {
     filename: string;
@@ -7,9 +9,24 @@ export type ImageContainerProps = {
 };
 
 const ImageContainer: FC<ImageContainerProps> = ({ filename, id }) => {
+    const dispatch = useDispatch();
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        console.log("meow");
+        const { checked } = e.target;
+        if (checked) {
+            dispatch(increment());
+        } else {
+            dispatch(decrement());
+        }
+    };
     return (
         <div className="group image-container">
-            <input id={id} type="checkbox" className="checkbox peer z-10" />
+            <input
+                id={id}
+                type="checkbox"
+                onChange={(id) => console.log(id)}
+                className="checkbox peer z-10"
+            />
             <Image
                 src={"/images/" + filename}
                 alt={filename}

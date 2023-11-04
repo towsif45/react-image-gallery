@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, useEffect, useMemo, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { ImageURL } from "./data";
 import {
     DndContext,
@@ -18,15 +18,19 @@ import {
 } from "@dnd-kit/sortable";
 import SortableImage from "./SortableImage";
 import DeleteButton from "./DeleteButton";
+import { Provider, useDispatch, useSelector } from "react-redux";
+import { RootState, store } from "../store";
+import { increment } from "../slices/counterSlice";
 
 type GridProps = {
     urls: ImageURL[];
 };
 
-const Grid: FC<GridProps> = ({ urls }) => {
+const ImageGrid: FC<GridProps> = ({ urls }) => {
     const [data, setData] = useState<ImageURL[]>([]);
-    const [count, setCount] = useState<number>(0);
+    const count = useSelector((state: RootState) => state.counter.value);
     const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
+    const dispatch = useDispatch();
 
     useEffect(() => {
         setData(urls);
@@ -34,14 +38,14 @@ const Grid: FC<GridProps> = ({ urls }) => {
 
     const handleClick = () => {
         console.log("clicked");
-        setCount(0);
+        dispatch(increment());
     };
 
     const handleDragEnd = (event: DragEndEvent) => {
         // console.log(event);
         const { active, over } = event;
-        console.log(active.id);
-        console.log(over?.id);
+        // console.log(active.id);
+        // console.log(over?.id);
         if (over && active.id !== over.id) {
             setData((items) => {
                 const oldIndex = items.map((i) => i?.id).indexOf(active.id);
@@ -55,7 +59,7 @@ const Grid: FC<GridProps> = ({ urls }) => {
         <div className="flex flex-col mt-10 ml-20 mr-20 mb-10">
             <div className="flex mb-3 justify-center bg-slate-300 rounded-lg">
                 <div className="w-1/2 my-auto items-center justify-center">
-                    SELECTED: {count} 
+                    SELECTED: {count}
                 </div>
                 <div>
                     <DeleteButton handleClick={handleClick} />{" "}
@@ -104,4 +108,4 @@ const Grid: FC<GridProps> = ({ urls }) => {
     );
 };
 
-export default Grid;
+export default ImageGrid;

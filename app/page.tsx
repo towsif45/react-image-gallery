@@ -1,6 +1,4 @@
-import DeleteButton from "./components/DeleteButton";
-import Grid from "./components/ImageGrid";
-import { IMAGE_URLS } from "./components/data";
+import ImageGridContainer from "./components/ImageGridContainer";
 
 export default function Home() {
     return (
@@ -10,10 +8,7 @@ export default function Home() {
                     Gallery
                 </h1>
             </div>
-            
-            <div className="flex justify-center">
-                <Grid urls={IMAGE_URLS} />
-            </div>
+            <ImageGridContainer />
         </div>
     );
 }
