@@ -3,41 +3,42 @@
 @tailwind utilities;
 
 @layer components {
-  .body {
-    @apply relative min-h-screen bg-gradient-to-br 
-    from-blue-950 via-blue-700 to-blue-200 flex flex-col
-  }
+    .body {
+        @apply relative min-h-screen bg-gradient-to-br from-blue-950 
+        via-blue-700 to-blue-200 flex flex-col;
+    }
 
-  .image {
-    @apply rounded-lg peer-checked:opacity-50 z-0 w-full h-auto
-  }
+    .image {
+        @apply rounded-lg peer-checked:opacity-50 z-0 w-full h-auto;
+    }
 
-  .image-dropzone {
-    @apply flex rounded-lg w-full h-auto bg-white
-  }
+    .image-container {
+        @apply w-full h-auto hover:scale-105 duration-300;
+    }
 
-  .image-grid {
-    @apply grid mt-3 ml-20 mr-20 mb-10 px-5 py-5
-    max-w-3xl 
-    rounded-lg bg-blue-300 sm:grid-cols-5 gap-4
-  }
+    .image-dropzone {
+        @apply flex rounded-lg w-full h-auto bg-white;
+    }
 
-  .featured-dropzone {
-    @apply flex row-span-2 col-span-2 rounded-lg 
-    h-auto w-full bg-white
-  }
+    .image-grid {
+        @apply grid mt-3 ml-20 mr-20 mb-10 px-5 py-5 max-w-3xl 
+        rounded-lg bg-blue-300 sm:grid-cols-5 gap-4;
+    }
 
-  .checkbox {
-    @apply m-4 w-4 h-4 absolute 
-    invisible
-    checked:visible
-    group-hover:visible
-    rounded-lg focus:outline-none
-    hover:cursor-pointer
-  }
+    .featured-dropzone {
+        @apply flex row-span-2 col-span-2 rounded-lg 
+        h-auto w-full bg-white;
+    }
+
+    .checkbox {
+        @apply m-4 w-4 h-4 absolute 
+        invisible
+        checked:visible
+        group-hover:visible
+        rounded-lg focus:outline-none
+        hover:cursor-pointer;
+    }
 }
-
-
 
 /* :root {
   --foreground-rgb: 0, 0, 0;

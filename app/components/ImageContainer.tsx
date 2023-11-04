@@ -1,14 +1,14 @@
 import Image from "next/image";
 import React, { FC } from "react";
 
-type ImageContainerProps = {
+export type ImageContainerProps = {
     filename: string;
     id: string;
 };
 
 const ImageContainer: FC<ImageContainerProps> = ({ filename, id }) => {
     return (
-        <div className="w-full h-auto group hover:scale-105 duration-300">
+        <div className="group image-container">
             <input id={id} type="checkbox" className="checkbox peer z-10" />
             <Image
                 src={"/images/" + filename}
