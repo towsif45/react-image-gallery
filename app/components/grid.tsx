@@ -1,7 +1,6 @@
 "use client";
 
 import React, { FC, useEffect, useMemo, useState } from "react";
-import ImageContainer from "./ImageContainer";
 import { ImageURL } from "./data";
 import {
     DndContext,
@@ -13,7 +12,7 @@ import {
     useSensors,
 } from "@dnd-kit/core";
 import { SortableContext, rectSortingStrategy } from "@dnd-kit/sortable";
-import { eventNames } from "process";
+import SortableImage from "./SortableImage";
 
 type GridProps = {
     urls: ImageURL[];
@@ -46,7 +45,7 @@ const Grid: FC<GridProps> = ({ urls }) => {
                                     key={element.key}
                                     className="featured-dropzone"
                                 >
-                                    <ImageContainer
+                                    <SortableImage
                                         filename={element.name}
                                         id={element.key}
                                     />
@@ -55,7 +54,7 @@ const Grid: FC<GridProps> = ({ urls }) => {
                         }
                         return (
                             <div key={element.key} className="image-dropzone">
-                                <ImageContainer
+                                <SortableImage
                                     filename={element.name}
                                     id={element.key}
                                 />
