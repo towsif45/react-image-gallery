@@ -1,4 +1,4 @@
-import Grid from "./components/grid";
+import Grid from "./components/ImageGrid";
 import { IMAGE_URLS } from "./components/data";
 
 export default function Home() {
