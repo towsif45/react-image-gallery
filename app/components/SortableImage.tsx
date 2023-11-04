@@ -1,3 +1,5 @@
+"use client"
+
 import { useSortable } from "@dnd-kit/sortable";
 import React, { FC } from "react";
 import ImageContainer, { ImageContainerProps } from "./ImageContainer";

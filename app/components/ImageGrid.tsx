@@ -18,9 +18,8 @@ import {
 } from "@dnd-kit/sortable";
 import SortableImage from "./SortableImage";
 import DeleteButton from "./DeleteButton";
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { RootState, store } from "../store";
-import { increment } from "../slices/counterSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
 
 type GridProps = {
     urls: ImageURL[];

@@ -1,5 +1,7 @@
+"use client"
+
 import Image from "next/image";
-import React, { ChangeEvent, FC, useState } from "react";
+import React, { ChangeEvent, FC } from "react";
 import { useDispatch } from "react-redux";
 import { decrement, increment } from "../slices/counterSlice";
 
