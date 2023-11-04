@@ -29,7 +29,14 @@ type GridProps = {
 const ImageGrid: FC<GridProps> = ({ urls }) => {
     const [data, setData] = useState<ImageURL[]>([]);
     const count = useSelector((state: RootState) => state.counter.value);
-    const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
+    const sensors = useSensors(
+        useSensor(MouseSensor, {
+            activationConstraint: {
+                distance: 8,
+            },
+        }),
+        useSensor(TouchSensor)
+    );
     const dispatch = useDispatch();
 
     useEffect(() => {

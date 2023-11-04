@@ -24,7 +24,7 @@ const ImageContainer: FC<ImageContainerProps> = ({ filename, id }) => {
             <input
                 id={id}
                 type="checkbox"
-                onChange={(id) => console.log(id)}
+                onChange={handleChange}
                 className="checkbox peer z-10"
             />
             <Image
