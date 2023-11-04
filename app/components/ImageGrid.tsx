@@ -45,7 +45,7 @@ const ImageGrid: FC<GridProps> = ({ urls }) => {
 
     const handleClick = () => {
         console.log("clicked");
-        dispatch(increment());
+        // dispatch(increment());
     };
 
     const handleDragEnd = (event: DragEndEvent) => {
