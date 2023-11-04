@@ -1,42 +1,71 @@
-'use client'
+"use client";
 
-import React, { FC, useEffect, useState } from 'react'
-import ImageContainer from './ImageContainer';
-import { ImageURL } from './data';
+import React, { FC, useEffect, useMemo, useState } from "react";
+import ImageContainer from "./ImageContainer";
+import { ImageURL } from "./data";
+import {
+    DndContext,
+    DragEndEvent,
+    MouseSensor,
+    TouchSensor,
+    closestCenter,
+    useSensor,
+    useSensors,
+} from "@dnd-kit/core";
+import { SortableContext, rectSortingStrategy } from "@dnd-kit/sortable";
+import { eventNames } from "process";
 
 type GridProps = {
-    urls: ImageURL[]
-}
+    urls: ImageURL[];
+};
 
-const Grid: FC<GridProps> = ({urls}) => {
+const Grid: FC<GridProps> = ({ urls }) => {
     const [data, setData] = useState<ImageURL[]>([]);
+    const imageId = useMemo(() => urls.map((item) => item.key), [urls]);
+    const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
 
-    useEffect(()=>{
+    useEffect(() => {
         setData(urls);
-    }, [urls])
+    }, [urls]);
+
+    const handleDragEnd = (event: DragEndEvent) => {
+        console.log(event);
+    };
 
     return (
-        <div className='image-grid'>
-        {
-          data.map((element, id) => {
-            if(id === 0){
-              return(
-                <div key={element.key} className='featured-dropzone'>
-                    <ImageContainer filename={element.name} id={element.key} />
+        <DndContext
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
+        >
+            <SortableContext items={imageId} strategy={rectSortingStrategy}>
+                <div className="image-grid">
+                    {data.map((element, id) => {
+                        if (id === 0) {
+                            return (
+                                <div
+                                    key={element.key}
+                                    className="featured-dropzone"
+                                >
+                                    <ImageContainer
+                                        filename={element.name}
+                                        id={element.key}
+                                    />
+                                </div>
+                            );
+                        }
+                        return (
+                            <div key={element.key} className="image-dropzone">
+                                <ImageContainer
+                                    filename={element.name}
+                                    id={element.key}
+                                />
+                            </div>
+                        );
+                    })}
                 </div>
-                
-              )
-            }
-            return (
-                <div key={element.key} className='image-dropzone'>
-                    <ImageContainer filename={element.name} id={element.key} />
-                </div>
-                
-            )
-          })
-        } 
-        </div>
-    )
-}
+            </SortableContext>
+        </DndContext>
+    );
+};
 
-export default Grid
+export default Grid;
