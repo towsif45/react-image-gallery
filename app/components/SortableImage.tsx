@@ -13,7 +13,7 @@ const SortableImage: FC<ImageContainerProps> = (props: ImageContainerProps) => {
         transition,
     };
     return (
-        <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+        <div ref={setNodeRef} style={style} {...attributes} {...listeners} className="touch-auto">
             <ImageContainer filename={props.filename} id={props.id} />
         </div>
     );

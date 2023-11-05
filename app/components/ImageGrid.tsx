@@ -36,7 +36,12 @@ const ImageGrid: FC<GridProps> = ({ urls }) => {
                 distance: 8,
             },
         }),
-        useSensor(TouchSensor)
+        useSensor(TouchSensor, {
+            activationConstraint: {
+                delay: 500,
+                tolerance: 16,
+            },
+        })
     );
     const dispatch = useDispatch();
 
