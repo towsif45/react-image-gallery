@@ -70,7 +70,7 @@ const ImageGrid: FC<GridProps> = ({ urls }) => {
     return (
         <div className="flex flex-col mt-10 ml-20 mr-20 mb-10">
             <div className="flex mb-3 justify-center bg-slate-300 rounded-lg">
-                <div className="w-2/3 ml-3 my-auto items-center justify-center text-start text-xl font-semibold">
+                <div className="w-2/3 ml-3 my-auto items-center justify-center text-start text-lg font-semibold">
                     SELECTED: {count}
                 </div>
                 <div>
