@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useSortable } from "@dnd-kit/sortable";
 import React, { FC } from "react";
@@ -13,7 +13,13 @@ const SortableImage: FC<ImageContainerProps> = (props: ImageContainerProps) => {
         transition,
     };
     return (
-        <div ref={setNodeRef} style={style} {...attributes} {...listeners} className="touch-auto">
+        <div
+            ref={setNodeRef}
+            style={style}
+            {...attributes}
+            {...listeners}
+            className="touch-auto"
+        >
             <ImageContainer filename={props.filename} id={props.id} />
         </div>
     );
