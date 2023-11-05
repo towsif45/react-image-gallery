@@ -49,14 +49,10 @@ const ImageGrid: FC<GridProps> = ({ urls }) => {
         dispatch(setZero());
 
         setData(data.filter((item) => !toDelete.includes(item.key)));
-        // dispatch(increment());
     };
 
     const handleDragEnd = (event: DragEndEvent) => {
-        // console.log(event);
         const { active, over } = event;
-        // console.log(active.id);
-        // console.log(over?.id);
         if (over && active.id !== over.id) {
             setData((items) => {
                 const oldIndex = items.map((i) => i?.id).indexOf(active.id);

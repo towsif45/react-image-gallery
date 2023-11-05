@@ -16,14 +16,11 @@ export const deleteSlice = createSlice({
     reducers: {
         addItem: (state, action: PayloadAction<string>) => {
             state.toDelete.push(action.payload);
-            console.log("Payload: ", action.payload);
-            console.log([state.toDelete]);
         },
         removeItem: (state, action: PayloadAction<string>) => {
             state.toDelete = state.toDelete.filter(
                 (item) => item !== action.payload.toString()
             );
-            console.log(state.toDelete);
         },
     },
 });
