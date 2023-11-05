@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'React Image Gallery',
+  title: 'Image Gallery',
   description: 'Image gallery created by using react',
 }
 
