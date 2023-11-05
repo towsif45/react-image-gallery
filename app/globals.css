@@ -17,11 +17,11 @@
     }
 
     .image-container {
-        @apply w-full h-auto hover:scale-105 duration-300;
+        @apply w-full h-auto;
     }
 
     .image-dropzone {
-        @apply flex rounded-lg w-full h-auto bg-white;
+        @apply flex rounded-lg w-full h-auto hover:scale-105 duration-300 bg-white;
     }
 
     .image-grid {
