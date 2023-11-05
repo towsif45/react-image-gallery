@@ -13,7 +13,7 @@
     }
 
     .image {
-        @apply rounded-lg peer-checked:opacity-40 z-0 w-full h-auto;
+        @apply rounded-lg peer-checked:opacity-40 z-0 w-full h-auto bg-white;
     }
 
     .image-container {
