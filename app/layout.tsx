@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Image Gallery',
-  description: 'Image gallery created by using react',
+  description: 'Image gallery created using React.js',
 }
 
 export default function RootLayout({
