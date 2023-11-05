@@ -21,7 +21,7 @@
     }
 
     .image-dropzone {
-        @apply flex rounded-lg w-full h-auto hover:scale-105 duration-300 bg-white;
+        @apply flex rounded-lg w-full h-auto hover:scale-110 duration-300 bg-white;
     }
 
     .image-grid {
@@ -31,7 +31,7 @@
 
     .featured-dropzone {
         @apply flex row-span-2 col-span-2 rounded-lg 
-        h-auto w-full bg-white;
+        h-auto w-full hover:scale-105 duration-300 bg-white;
     }
 
     .checkbox {
