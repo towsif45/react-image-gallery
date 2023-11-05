@@ -20,6 +20,7 @@ import SortableImage from "./SortableImage";
 import DeleteButton from "./DeleteButton";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
+import { setZero } from "../slices/counterSlice";
 
 type GridProps = {
     urls: ImageURL[];
@@ -28,6 +29,7 @@ type GridProps = {
 const ImageGrid: FC<GridProps> = ({ urls }) => {
     const [data, setData] = useState<ImageURL[]>([]);
     const count = useSelector((state: RootState) => state.counter.value);
+    const toDelete = useSelector((state: RootState) => state.delete.toDelete);
     const sensors = useSensors(
         useSensor(MouseSensor, {
             activationConstraint: {
@@ -44,6 +46,9 @@ const ImageGrid: FC<GridProps> = ({ urls }) => {
 
     const handleClick = () => {
         console.log("clicked");
+        dispatch(setZero());
+
+        setData(data.filter((item) => !toDelete.includes(item.key)));
         // dispatch(increment());
     };
 

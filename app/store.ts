@@ -2,10 +2,12 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./slices/counterSlice";
+import deleteReducer from "./slices/deleteSlice";
 
 export const store = configureStore({
     reducer: {
         counter: counterReducer,
+        delete: deleteReducer,
     },
 });
 

@@ -1,9 +1,10 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import React, { ChangeEvent, FC } from "react";
 import { useDispatch } from "react-redux";
 import { decrement, increment } from "../slices/counterSlice";
+import { addItem, removeItem } from "../slices/deleteSlice";
 
 export type ImageContainerProps = {
     filename: string;
@@ -13,12 +14,14 @@ export type ImageContainerProps = {
 const ImageContainer: FC<ImageContainerProps> = ({ filename, id }) => {
     const dispatch = useDispatch();
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log("meow");
+        console.log(e.target.id);
         const { checked } = e.target;
         if (checked) {
             dispatch(increment());
+            dispatch(addItem(e.target.id));
         } else {
             dispatch(decrement());
+            dispatch(removeItem(e.target.id));
         }
     };
     return (
